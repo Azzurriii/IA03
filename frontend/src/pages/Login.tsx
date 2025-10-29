@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 interface LoginFormData {
@@ -9,6 +9,7 @@ interface LoginFormData {
 
 const Login = () => {
   const [loginSuccess, setLoginSuccess] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -19,9 +20,9 @@ const Login = () => {
   const onSubmit = (data: LoginFormData) => {
     console.log('Login attempt:', data);
     setLoginSuccess(true);
+    // Mock login - redirect to dashboard after a brief delay
     setTimeout(() => {
-      alert('Login functionality is not implemented yet. This is just a UI demo!');
-      setLoginSuccess(false);
+      navigate('/dashboard');
     }, 1500);
   };
 
@@ -35,7 +36,7 @@ const Login = () => {
 
         {loginSuccess && (
           <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-            Login successful! This is a demo UI.
+            Login successful! Redirecting to dashboard...
           </div>
         )}
 
@@ -54,7 +55,7 @@ const Login = () => {
               })}
               type="email"
               id="email"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition text-gray-800"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition text-gray-800"
               placeholder="you@example.com"
             />
             {errors.email && (
@@ -76,7 +77,7 @@ const Login = () => {
               })}
               type="password"
               id="password"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition text-gray-800"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition text-gray-800"
               placeholder="••••••••"
             />
             {errors.password && (
@@ -103,7 +104,7 @@ const Login = () => {
 
         <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
           <p className="text-sm text-blue-800">
-            <strong>Note:</strong> This is a UI-only demonstration. Login functionality is not implemented yet.
+            <strong>Note:</strong> This is a mock login. Enter any email and password to proceed! 🎉
           </p>
         </div>
       </div>
