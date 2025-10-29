@@ -1,18 +1,7 @@
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [showMessage, setShowMessage] = useState(false);
-
-  useEffect(() => {
-    // Show the surprise message after a brief delay
-    const timer = setTimeout(() => {
-      setShowMessage(true);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleLogout = () => {
     navigate('/');
