@@ -8,7 +8,7 @@ Error Handling: 2/2
 Routing (Home, Login, Sign Up) 1/1
 Sign Up Page (Form, Validation, API Integration with React Query): 2/2
 Login Page (Form, Validation, UI with shadcn/ui or equivalent): 2/2
-Public host deployment: 1/1
+Public host deployment: 1/1: https://vtthanh-ia03.vercel.app (FE) and https://api-ia03.vercel.app (BE)
 
 
 ## 🚀 Features
@@ -29,6 +29,17 @@ Public host deployment: 1/1
   - Responsive design
   - Real-time validation feedback
 
+## How to run
 
+```
+cd backend
+npm install
+npm run start:dev
+```
+```
+cd frontend
+npm install
+npm run dev
+```
 
 
