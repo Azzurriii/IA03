@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
 import { registerUser, type RegisterData } from '../api/user';
@@ -12,6 +12,7 @@ interface FormData {
 
 const SignUp = () => {
   const [successMessage, setSuccessMessage] = useState<string>('');
+  const navigate = useNavigate();
 
   const {
     register,
@@ -27,7 +28,7 @@ const SignUp = () => {
       setSuccessMessage(`${data.message}! Welcome, ${data.user.email}`);
       reset();
       setTimeout(() => {
-        window.location.href = '/login';
+        navigate('/login');
       }, 2000);
     },
     onError: (error: any) => {
